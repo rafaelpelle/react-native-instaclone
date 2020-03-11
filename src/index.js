@@ -4,8 +4,7 @@ import { StatusBar } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 
-import Home from './pages/Home'
-import Notifications from './pages/Notifications'
+import Feed from './pages/Feed'
 import HeaderImage from './components/HeaderImage'
 
 export default function App() {
@@ -25,8 +24,7 @@ export default function App() {
       <StatusBar barStyle='dark-content' backgroundColor='#f5f5f5' />
       <NavigationContainer>
         <Stack.Navigator initialRouteName='Home' screenOptions={screenOptions}>
-          <Stack.Screen name='Home' component={Home} options={{ title: 'Home Page' }} />
-          <Stack.Screen name='Notifications' component={Notifications} />
+          <Stack.Screen name='Feed' component={Feed} />
         </Stack.Navigator>
       </NavigationContainer>
     </>
