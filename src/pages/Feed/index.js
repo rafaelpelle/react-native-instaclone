@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { View, FlatList } from 'react-native'
 
 import axiosClient from '../../services/axiosClient'
@@ -14,6 +14,7 @@ export default function Feed({ navigation }) {
   const [total, setTotal] = useState(0)
   const [loading, setLoading] = useState(false)
   const [refreshing, setRefreshing] = useState(false)
+  const [viewable, setViewable] = useState([])
 
   useEffect(() => {
     loadFeed()
@@ -42,6 +43,10 @@ export default function Feed({ navigation }) {
     setRefreshing(false)
   }
 
+  const handleViewChange = useCallback(({ changed }) => {
+    setViewable(changed.map(({ item }) => item.id))
+  }, [])
+
   return (
     <View style={styles.container}>
       <FlatList
@@ -49,10 +54,12 @@ export default function Feed({ navigation }) {
         keyExtractor={(post) => String(post.id)}
         onEndReached={() => loadFeed()}
         onEndReachedThreshold={0.1}
-        renderItem={({ item }) => <Post postData={item} />}
-        ListFooterComponent={loading && <Loader />}
         onRefresh={handleRefresh}
         refreshing={refreshing}
+        onViewableItemsChanged={handleViewChange}
+        viewabilityConfig={{ viewAreaCoveragePercentThreshold: 20, minimumViewTime: 500 }}
+        renderItem={({ item }) => <Post postData={item} shouldLoad={viewable.includes(item.id)} />}
+        ListFooterComponent={loading && <Loader />}
       />
     </View>
   )
