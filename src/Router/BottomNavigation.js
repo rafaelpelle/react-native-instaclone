@@ -5,7 +5,7 @@ import { disabledGrey, black } from '../utils/colors'
 import { bottomNavigationRoutes } from './routes'
 
 const screenOptions = ({ route }) => ({
-  tabBarIcon: ({ color, size }) => {
+  tabBarIcon: ({ color, size, focused }) => {
     const foundRoute = bottomNavigationRoutes.find((r) => r.name === route.name)
     return <Icon name={foundRoute.icon} size={30} color={color} />
   },

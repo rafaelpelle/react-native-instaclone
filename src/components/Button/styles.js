@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
     borderRadius: 4,
     paddingVertical: 10,
     paddingHorizontal: 20,
-    backgroundColor: 'white',
+    backgroundColor: '#3897f0',
     shadowColor: '#000',
     elevation: 3,
     shadowOpacity: 0.22,
@@ -16,9 +16,9 @@ export const styles = StyleSheet.create({
     },
   },
   buttonText: {
-    fontSize: 15,
-    color: 'rgb(113, 89, 193)',
+    fontSize: 14,
+    color: 'white',
     fontWeight: 'bold',
-    textTransform: 'uppercase',
+    letterSpacing: 1,
   },
 })
