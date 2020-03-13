@@ -5,6 +5,7 @@ import { styles } from './styles'
 import axiosClient from '../../services/axiosClient'
 import Loader from '../../components/Loader'
 import FriendItem from '../../components/FriendItem'
+import FriendModal from '../../components/FriendModal'
 
 const limit = 20
 
@@ -14,6 +15,7 @@ export default function Friends({ navigation }) {
   const [total, setTotal] = useState(0)
   const [loading, setLoading] = useState(false)
   const [refreshing, setRefreshing] = useState(false)
+  const [selectedUser, setSelectedUser] = useState(null)
 
   useEffect(() => {
     loadUsers()
@@ -40,8 +42,17 @@ export default function Friends({ navigation }) {
     setRefreshing(false)
   }
 
+  const onUserClick = (user) => {
+    setSelectedUser(user)
+  }
+
+  const onCloseModal = () => {
+    setSelectedUser(null)
+  }
+
   return (
     <View style={styles.container}>
+      <FriendModal selectedUser={selectedUser} onCloseModal={onCloseModal} />
       <FlatList
         style={{ width: '100%' }}
         data={usersList}
@@ -50,7 +61,7 @@ export default function Friends({ navigation }) {
         onEndReachedThreshold={0.1}
         onRefresh={handleRefresh}
         refreshing={refreshing}
-        renderItem={({ item }) => <FriendItem userData={item} />}
+        renderItem={({ item }) => <FriendItem userData={item} onUserClick={onUserClick} />}
         ListFooterComponent={loading && <Loader />}
       />
     </View>

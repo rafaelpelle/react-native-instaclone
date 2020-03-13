@@ -1,11 +1,12 @@
 import { StyleSheet } from 'react-native'
+import { blue } from '../../utils/colors'
 
 export const styles = StyleSheet.create({
   button: {
     borderRadius: 4,
-    paddingVertical: 10,
+    paddingVertical: 8,
     paddingHorizontal: 20,
-    backgroundColor: '#3897f0',
+    backgroundColor: blue,
     shadowColor: '#000',
     elevation: 3,
     shadowOpacity: 0.22,
