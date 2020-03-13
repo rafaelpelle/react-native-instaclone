@@ -1,6 +1,7 @@
 import Feed from '../pages/Feed'
 
 export const bottomNavigationRoutes = [
-  { name: 'Feed', component: Feed },
-  { name: 'Gallery', component: Feed },
+  { name: 'Feed', icon: 'home', component: Feed },
+  { name: 'Friends', icon: 'person', component: Feed },
+  { name: 'Settings', icon: 'settings', component: Feed },
 ]
