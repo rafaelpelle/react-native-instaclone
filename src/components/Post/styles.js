@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native'
+import { darkGrey } from '../../utils/colors'
 
 export const styles = StyleSheet.create({
   post: {
@@ -19,7 +20,7 @@ export const styles = StyleSheet.create({
     fontSize: 15,
     lineHeight: 18,
     fontWeight: 'bold',
-    color: '#333',
+    color: darkGrey,
   },
   image: {
     width: '100%',

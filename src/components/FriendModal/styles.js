@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { blue, disabledGrey } from '../../utils/colors'
+import { blue, darkGrey } from '../../utils/colors'
 
 export const styles = StyleSheet.create({
   modalBackdrop: {
@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
     top: 0,
     left: 0,
     zIndex: 1400,
-    backgroundColor: '#000000AA',
+    backgroundColor: '#000000BB',
     width: '100%',
     height: '100%',
   },
@@ -25,9 +25,11 @@ export const styles = StyleSheet.create({
     zIndex: 1500,
   },
   closeButton: {
+    color: darkGrey,
     position: 'absolute',
-    top: 15,
-    right: 15,
+    top: 0,
+    right: 0,
+    padding: 10,
   },
   image: {
     height: 150,
@@ -36,10 +38,12 @@ export const styles = StyleSheet.create({
     marginBottom: 20,
   },
   name: {
+    color: darkGrey,
     fontSize: 30,
     fontWeight: 'bold',
   },
   city: {
+    color: darkGrey,
     fontWeight: 'bold',
     fontSize: 15,
   },
@@ -49,10 +53,12 @@ export const styles = StyleSheet.create({
     fontSize: 18,
   },
   phone: {
+    color: darkGrey,
     marginVertical: 10,
     fontSize: 18,
   },
   address: {
+    color: darkGrey,
     fontSize: 15,
   },
 })
