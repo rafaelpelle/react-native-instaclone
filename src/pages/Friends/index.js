@@ -54,7 +54,7 @@ export default function Friends({ navigation }) {
     <View style={styles.container}>
       <FriendModal selectedUser={selectedUser} onCloseModal={onCloseModal} />
       <FlatList
-        style={{ width: '100%' }}
+        style={styles.list}
         data={usersList}
         keyExtractor={(user) => String(user.id)}
         onEndReached={() => loadUsers()}

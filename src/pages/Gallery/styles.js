@@ -8,5 +8,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: 'white',
   },
-  list: { width: '100%' },
+  list: {
+    width: '100%',
+  },
 })
