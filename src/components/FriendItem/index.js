@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, Image, TouchableWithoutFeedback } from 'react-native'
+import { Alert, View, Text, Image, TouchableWithoutFeedback } from 'react-native'
 
 import Button from '../Button'
 import { styles } from './styles'
@@ -9,6 +9,10 @@ export default function FriendItem({ userData, onUserClick }) {
   const userName = `@${firstName}`
   const fullName = `${firstName} ${lastName}`
 
+  const handleFollow = (event) => {
+    Alert.alert('Sorry! Not implemented yet...')
+  }
+
   return (
     <TouchableWithoutFeedback onPress={() => onUserClick(userData)}>
       <View style={styles.container}>
@@ -17,7 +21,7 @@ export default function FriendItem({ userData, onUserClick }) {
           <Text style={styles.userName}>{userName}</Text>
           <Text style={styles.name}>{fullName}</Text>
         </View>
-        <Button text='Follow' style={{ marginLeft: 'auto' }} />
+        <Button text='Follow' style={styles.followButton} onPress={handleFollow} />
       </View>
     </TouchableWithoutFeedback>
   )

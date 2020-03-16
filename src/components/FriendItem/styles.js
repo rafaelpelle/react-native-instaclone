@@ -22,4 +22,7 @@ export const styles = StyleSheet.create({
     height: 70,
     marginRight: 10,
   },
+  followButton: {
+    marginLeft: 'auto',
+  },
 })
