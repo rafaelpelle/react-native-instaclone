@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Image, Modal, Text } from 'react-native'
+import { View, Modal } from 'react-native'
 
 import PostHeader from '../Post/PostHeader'
 import LazyImage from '../LazyImage'

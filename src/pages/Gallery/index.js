@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, Image, FlatList } from 'react-native'
+import { View, FlatList } from 'react-native'
 
 import { styles } from './styles'
 import axiosClient from '../../services/axiosClient'
@@ -7,7 +7,7 @@ import Loader from '../../components/Loader'
 import GalleryItem from '../../components/GalleryItem'
 import GalleryModal from '../../components/GalleryModal'
 
-const limit = 50
+const limit = 40
 
 export default function Friends({ navigation }) {
   const [imagesList, setImagesList] = useState([])
