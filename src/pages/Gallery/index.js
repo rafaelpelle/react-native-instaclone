@@ -5,7 +5,7 @@ import { styles } from './styles'
 import axiosClient from '../../services/axiosClient'
 import Loader from '../../components/Loader'
 import GalleryItem from '../../components/GalleryItem'
-// import GalleryModal from '../../components/GalleryModal'
+import GalleryModal from '../../components/GalleryModal'
 
 const limit = 50
 
@@ -25,7 +25,9 @@ export default function Friends({ navigation }) {
     if (total && page > total) return
     setLoading(true)
     try {
-      const response = await axiosClient.get(`gallery?_limit=${limit}&_page=${pageToLoad}`)
+      const response = await axiosClient.get(
+        `gallery?_expand=author&_limit=${limit}&_page=${pageToLoad}`,
+      )
       setImagesList(shoudRefresh ? response.data : [...imagesList, ...response.data])
       setTotal(Math.floor(response.headers['x-total-count'] / limit))
       setPage(page + 1)
@@ -46,13 +48,13 @@ export default function Friends({ navigation }) {
     setSelectedImage(image)
   }
 
-  const onCLoseModal = () => {
+  const onCloseModal = () => {
     setSelectedImage(null)
   }
 
   return (
     <View style={styles.container}>
-      {/* <GalleryModal selectedImage={selectedImage} onCloseModal={onCLoseModal} /> */}
+      <GalleryModal selectedImage={selectedImage} onCloseModal={onCloseModal} />
       <FlatList
         numColumns={4}
         style={styles.list}
@@ -62,7 +64,9 @@ export default function Friends({ navigation }) {
         onEndReachedThreshold={0.1}
         onRefresh={handleRefresh}
         refreshing={refreshing}
-        renderItem={({ item }) => <GalleryItem imageData={item} onImageClick={onImageClick} />}
+        renderItem={({ item }) => (
+          <GalleryItem imageData={item} onImageClick={onImageClick} onCloseModal={onCloseModal} />
+        )}
         ListFooterComponent={loading && <Loader />}
       />
     </View>
