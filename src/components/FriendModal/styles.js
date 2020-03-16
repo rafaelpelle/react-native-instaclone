@@ -1,17 +1,33 @@
 import { StyleSheet } from 'react-native'
-import { blue } from '../../utils/colors'
+import { blue, disabledGrey } from '../../utils/colors'
 
 export const styles = StyleSheet.create({
+  modalBackdrop: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    zIndex: 1400,
+    backgroundColor: '#000000AA',
+    width: '100%',
+    height: '100%',
+  },
   modalContent: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'white',
-    width: '90%',
+    width: '85%',
     height: '50%',
     borderRadius: 10,
-    marginLeft: 'auto',
-    marginRight: 'auto',
+    zIndex: 1500,
+  },
+  closeButton: {
+    position: 'absolute',
+    top: 15,
+    right: 15,
   },
   image: {
     height: 150,
